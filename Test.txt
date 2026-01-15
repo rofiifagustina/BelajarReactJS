@@ -1,0 +1,10 @@
+awal inisiasi git
+-Buat Repositori di GitHub
+-Buat Folder project di local komputer/laptop
+-inisiasi git - git init 
+-menambahkan file/project ke folder project
+-menambahkan perubahan file/project ke git -git add namafile
+-commit -git commit -m "Pesan commit"
+-tambahkan cabang/branch -git branch -M main
+-hubungkan git local dengan Github -git remote add origin alamat git(https://github.com/rofiifagustina/BelajarReactJS.git)
+-upload file/perubahan ke GitHub/repo online -git push -u origin main
