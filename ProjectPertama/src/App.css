@@ -1,42 +1,84 @@
+/* 1. Pengaturan Background Utama */
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  background: radial-gradient(circle at top, #1e293b, #0f172a);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* 2. Gaya Judul (Tetap di luar kartu) */
+h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0;
+  background: linear-gradient(to right, #818cf8, #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Teks "SEMANGAT YA" */
+h1 + p {
+  color: #94a3b8;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 50px;
+  text-align: center;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* 3. Membuat Container Kartu */
+/* Ini akan mendeteksi div yang membungkus konten Anda */
+div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* 4. MENGUBAH DATA MENJADI PER-CARD */
+/* Kita mengincar paragraf yang berisi 'Nama:' sebagai awal kartu baru */
+p:not(h1 + p) {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 25px;
+  border-radius: 20px;
+  width: 300px; /* Lebar kartu */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
 }
 
-.card {
-  padding: 2em;
+/* Memberi warna khusus pada label (Nama, Kelas, Nisn) */
+p strong {
+  color: #818cf8;
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.read-the-docs {
-  color: #888;
+/* Efek Hover agar Card terasa hidup */
+p:not(h1 + p):hover {
+  transform: translateY(-10px) scale(1.03);
+  border-color: #818cf8;
+  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+  background: rgba(30, 41, 59, 0.9);
+}
+
+/* Memberi sedikit variasi warna pada card secara otomatis */
+p:not(h1 + p):nth-child(3n) {
+  border-left: 4px solid #c084fc;
+}
+p:not(h1 + p):nth-child(3n+1) {
+  border-left: 4px solid #818cf8;
 }
